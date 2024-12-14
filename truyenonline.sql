@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 04, 2024 at 08:55 AM
+-- Generation Time: Dec 14, 2024 at 08:41 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -44,9 +44,10 @@ CREATE TABLE `chapters` (
 --
 
 INSERT INTO `chapters` (`chapter_id`, `comic_id`, `chap_number`, `title`, `page_number`, `img_content`, `view_count`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'Đây có phải cách tình yêu bắt đầu ?', 66, 'dan_da_dan/chap_1/', 9, '2024-11-28 13:46:30', NULL),
-(2, 1, 2, 'Thứ đó là người ngoài hành tinh phải không?', 54, 'dan_da_dan/chap_2/', 6, '2024-11-30 02:13:44', NULL),
-(3, 2, 1, NULL, 16, 'dragon_ball_super/chap_1/', 10, '2024-12-02 12:16:38', NULL);
+(1, 1, 1, 'Đây có phải cách tình yêu bắt đầu ?', 66, 'dan_da_dan/chap_1/', 13, '2024-11-28 13:46:30', NULL),
+(2, 1, 2, 'Thứ đó là người ngoài hành tinh phải không?', 54, 'dan_da_dan/chap_2/', 11, '2024-11-30 02:13:44', NULL),
+(3, 2, 1, NULL, 16, 'dragon_ball_super/chap_1/', 11, '2024-12-02 12:16:38', NULL),
+(4, 7, 1, 'Test', 4, 'doraemon/chap_1/', 1, '2024-12-13 00:43:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -74,8 +75,10 @@ CREATE TABLE `comics` (
 --
 
 INSERT INTO `comics` (`comic_id`, `comic_name`, `artist`, `description`, `status`, `chap_total`, `comic_dir`, `title_img`, `view_count`, `coin_price`, `created_at`, `updated_at`) VALUES
-(1, 'Dan Da Dan', 'Tatsu Yukinobu', 'Một chàng trai otaku đam mê huyền bí không tin vào ma quỷ và Ayase, một cô gái không tin vào người ngoài hành tinh, gặp phải một bí ẩn quá lớn vượt quá sự hiểu biết của bản thân. Câu chuyện tình bi hài pha lẫn kinh dị và huyền bí !', 0, 2, 'dan_da_dan/', 'dan_da_dan/title.jpg', 15, 0, '2024-11-28 13:38:41', NULL),
-(2, 'Dragon Ball Super', 'Toriyama Akira', 'Câu chuyện của Dragon Ball Super diễn ra ngay sau khi chiến đấu với Ma Nhân Bư, cuộc sống ở trái đất lại được hòa bình thêm 1 lần nữa. Sau đó vì nhà gần như hết tiền để chi tiêu Chichi tiền ra lệnh cho Goku phải đi kiếm tiền, và không được phép luyện tập trong thời gian này!! Videl sắp trở thành chị dâu của Goten nên Goten đã đặt ra một cuộc hành trình cùng với TRunks để tìm cho Videl một món quà!', 1, 1, 'dragon_ball_super/', 'dragon_ball_super/title.jpg', 10, 50, '2024-12-02 12:15:43', NULL);
+(1, 'Dan Da Dan', 'Tatsu Yukinobu', 'Một chàng trai otaku đam mê huyền bí không tin vào ma quỷ và Ayase, một cô gái không tin vào người ngoài hành tinh, gặp phải một bí ẩn quá lớn vượt quá sự hiểu biết của bản thân. Câu chuyện tình bi hài pha lẫn kinh dị và huyền bí !', 0, 2, 'dan_da_dan/', 'dan_da_dan/title.jpg', 24, 0, '2024-11-28 13:38:41', NULL),
+(2, 'Dragon Ball Super', 'Toriyama Akira', 'Câu chuyện của Dragon Ball Super diễn ra ngay sau khi chiến đấu với Ma Nhân Bư, cuộc sống ở trái đất lại được hòa bình thêm 1 lần nữa. Sau đó vì nhà gần như hết tiền để chi tiêu Chichi tiền ra lệnh cho Goku phải đi kiếm tiền, và không được phép luyện tập trong thời gian này!! Videl sắp trở thành chị dâu của Goten nên Goten đã đặt ra một cuộc hành trình cùng với TRunks để tìm cho Videl một món quà!', 1, 1, 'dragon_ball_super/', 'dragon_ball_super/title.jpg', 11, 50, '2024-12-02 12:15:43', NULL),
+(7, 'Doraemon', 'Fujiko F. Fujio', '', 0, 0, 'doraemon/', 'doraemon/title.jpg', 1, 0, '2024-12-10 07:20:16', NULL),
+(8, 'ưywiyo', 'hkhkh', '', 0, 0, 'test/', 'test/title.gif', 0, 0, '2024-12-13 03:31:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -97,8 +100,8 @@ CREATE TABLE `comic_bought` (
 
 INSERT INTO `comic_bought` (`bought_id`, `user_id`, `comic_id`, `price`, `time_bought`) VALUES
 (1, 1, 2, 50, '2024-12-03 11:29:02'),
-(4, 7, 2, 50, '2024-12-03 21:12:57'),
-(6, 6, 2, 50, '2024-12-04 07:21:57');
+(6, 6, 2, 50, '2024-12-04 07:21:57'),
+(9, 8, 2, 50, '2024-12-13 03:30:15');
 
 -- --------------------------------------------------------
 
@@ -120,7 +123,14 @@ INSERT INTO `comic_genres` (`comic_genre_id`, `comic_id`, `genre_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 2, 4),
-(4, 2, 1);
+(4, 2, 1),
+(5, 7, 1),
+(6, 7, 2),
+(7, 7, 4),
+(8, 7, 5),
+(9, 8, 1),
+(10, 8, 2),
+(11, 8, 4);
 
 -- --------------------------------------------------------
 
@@ -132,10 +142,19 @@ CREATE TABLE `comments` (
   `comment_id` int NOT NULL,
   `user_id` int NOT NULL,
   `comic_id` int NOT NULL,
-  `chapter_id` int NOT NULL,
+  `chapter_id` int DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `user_id`, `comic_id`, `chapter_id`, `content`, `created_at`) VALUES
+(1, 6, 1, NULL, 'Truyện hay ', '2024-12-12 18:35:07'),
+(2, 8, 1, NULL, 'Hay quá', '2024-12-12 19:12:08'),
+(3, 8, 7, NULL, 'hay quá', '2024-12-12 19:12:55');
 
 -- --------------------------------------------------------
 
@@ -165,6 +184,13 @@ CREATE TABLE `favorites` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`favorite_id`, `user_id`, `comic_id`, `created_at`) VALUES
+(1, 8, 7, '2024-12-11 15:26:06');
+
 -- --------------------------------------------------------
 
 --
@@ -184,7 +210,9 @@ CREATE TABLE `genres` (
 INSERT INTO `genres` (`genre_id`, `name`, `description`) VALUES
 (1, 'Actions', 'Hành động có 102'),
 (2, 'Adventure', 'Phiêu lưu kỳ thú'),
-(4, 'Fantasy', '');
+(4, 'Fantasy', ''),
+(5, 'Harem', ''),
+(6, 'Test', 'ttttt');
 
 -- --------------------------------------------------------
 
@@ -200,6 +228,13 @@ CREATE TABLE `reading_history` (
   `last_page` int NOT NULL,
   `last_read` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `reading_history`
+--
+
+INSERT INTO `reading_history` (`history_id`, `user_id`, `comic_id`, `chapter_id`, `last_page`, `last_read`) VALUES
+(1, 8, 1, 1, 30, '2024-12-11 15:30:04');
 
 -- --------------------------------------------------------
 
@@ -224,10 +259,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `avatar`, `coin`, `created_at`, `updated_at`, `role`) VALUES
-(1, 'admin', 'admin@admin', 'admin', 'admin_1.jpg', 12245, '2024-11-21 08:36:53', NULL, 1),
-(2, 'user', 'user@mail.com', 'user', NULL, 0, '2024-11-29 17:53:46', NULL, 0),
-(6, 'test1', 'test2@mail.com', 'haha', 'test2_51c7b4.gif', 0, '2024-11-30 12:44:17', NULL, 0),
-(7, 'test4', 'test4@mail.com', 'haha', 'test4_b65096.jpg', 0, '2024-12-01 00:16:34', NULL, 0);
+(1, 'admin', 'admin@admin', '$2y$10$viePvflFBT1UbKbRGyeobeLRQUEpXaXuSDOjnAcY4/zj1R2m2KD8G', 'admin_1.jpg', 12245, '2024-11-21 08:36:53', NULL, 1),
+(2, 'user', 'user@mail.com', '$2y$10$/M/wn0A17YVAnWalkI6T0eXNe4XkhilxIWPduzpNr86pYe3FXPyfa', NULL, 0, '2024-11-29 17:53:46', NULL, 0),
+(6, 'test1', 'test2@mail.com', '$2y$10$sJK9rL3.5kjSFk4GS2Q8eOME2j3biIPR/V.gv2jCIZ1qhQ6KCKC4a', 'test2_51c7b4.gif', 0, '2024-11-30 12:44:17', NULL, 0),
+(7, 'test4', 'test4@mail.com', '$2y$10$sJK9rL3.5kjSFk4GS2Q8eOME2j3biIPR/V.gv2jCIZ1qhQ6KCKC4a', 'test4_b65096.jpg', 0, '2024-12-01 00:16:34', NULL, 0),
+(8, 'datahihi1', 'datahihi1100@gmail.com', '$2y$10$4AzmFYb6MXOhJcP0sYaxV.EPUxBrAyfHFnEMs22pAstFjG0xotXJq', 'admin_1.jpg', 0, '2024-12-11 14:53:27', NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -315,31 +351,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `chapters`
 --
 ALTER TABLE `chapters`
-  MODIFY `chapter_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `chapter_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `comics`
 --
 ALTER TABLE `comics`
-  MODIFY `comic_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `comic_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `comic_bought`
 --
 ALTER TABLE `comic_bought`
-  MODIFY `bought_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `bought_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `comic_genres`
 --
 ALTER TABLE `comic_genres`
-  MODIFY `comic_genre_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `comic_genre_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `deposit_history`
@@ -351,25 +387,25 @@ ALTER TABLE `deposit_history`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favorite_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `favorite_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `genre_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `genre_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reading_history`
 --
 ALTER TABLE `reading_history`
-  MODIFY `history_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `history_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
